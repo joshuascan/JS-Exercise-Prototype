@@ -149,10 +149,10 @@ console.log(jeffrey.tank)
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. When in global scope, "this" will be referencing the window that javascript takes place in.
+    2. With implicit binding, when a function is called, "this" will refer to the object to the left of the period on the function.
+    3. Explicit binding allows us to assign "this" to a specific value. It uses "call", "apply", and "bind".
+    4. When creating a new object using a constructor function, "this" will refer to the new object.
   */
   
   
