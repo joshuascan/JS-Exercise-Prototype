@@ -96,12 +96,14 @@ function Airplane(name) {
   }
 
   Car.prototype.drive = function(distance){
-      this.odometer += distance;
-      this.tank = (this.tank * this.milesPerGallon - distance) / this.milesPerGallon;
-      if(this.tank <= 0){
-          console.log(`I ran out of fuel at ${this.odometer + (this.tank * this.milesPerGallon)} miles!`);
-          this.tank = 0;
-      }
+      if(this.tank > 0){
+        this.odometer += distance;
+        this.tank = (this.tank * this.milesPerGallon - distance) / this.milesPerGallon;
+            if(this.tank <= 0){
+                console.log(`I ran out of fuel at ${this.odometer + (this.tank * this.milesPerGallon)} miles!`);
+                this.tank = 0;
+            }
+      }else console.log("You don't have any gas!");
   }
   
 const jeffrey = new Car('Aston Martin', 20);
@@ -113,6 +115,9 @@ console.log(jeffrey.tank);
 jeffrey.drive(255);
 console.log(jeffrey.tank)
 
+jeffrey.drive(50);
+console.log(jeffrey.tank)
+
   /*
     TASK 3
       - Write a Baby constructor subclassing Person.
@@ -120,8 +125,8 @@ console.log(jeffrey.tank)
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby() {
-   
+ function Baby(prop1, prop2) {
+    Person.call(this, prop1, prop2);
   }
  
   
